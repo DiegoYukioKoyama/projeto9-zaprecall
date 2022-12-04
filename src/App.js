@@ -1,13 +1,19 @@
 import styled from "styled-components"
 import Logo from "./components/Logo";
 import Deck from "./components/Deck";
+import Counter from "./components/Counter"
+import { useState } from "react";
 
 export default function App() {
+
+  const [contador, setContador] = useState(0)
+  
   return (
     
     <ScreenContainer>
       <Logo />
-      <Deck />
+      <Deck setContador={setContador} contador={contador}/>
+      <Counter contador={contador} />
     </ScreenContainer>
 
   )

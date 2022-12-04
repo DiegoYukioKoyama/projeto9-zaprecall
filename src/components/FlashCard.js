@@ -5,13 +5,25 @@ import iconeCerto from "../assets/img/icone_certo.png"
 import iconeErro from "../assets/img/icone_erro.png"
 import iconeQuase from "../assets/img/icone_quase.png"
 
-export default function FlashCard({text, image, question, answer}) {
+export default function FlashCard(props) {
 
+    const {text, image, question, answer, contador, setContador} = props
 
     const [stage, setStage] = useState("start")
 
-    function clickPlay() {
+    function clickNLembrei() {
+        setStage("Não lembrei")
+        setContador(contador + 1)
+    }
 
+    function clickQNLembrei() {
+        setStage("Quase não lembrei")
+        setContador(contador+ 1)
+    }
+
+    function clickZap() {
+        setStage("Zap!")
+        setContador(contador + 1)
     }
 
     if (stage === "start") {
@@ -37,9 +49,9 @@ export default function FlashCard({text, image, question, answer}) {
             <PerguntaAberta>
                 <p>{answer}</p>
                     <ContainerButton>
-                    <NaoLembrei onClick={() => setStage("Não lembrei")}>Não lembrei</NaoLembrei>
-                    <QuaseNaoLembrei onClick={() => setStage("Quase não lembrei")}>Quase não lembrei</QuaseNaoLembrei>
-                    <Zap onClick={() => setStage("Zap!")}>Zap!</Zap>
+                    <NaoLembrei onClick={clickNLembrei}>Não lembrei</NaoLembrei>
+                    <QuaseNaoLembrei onClick={clickQNLembrei}>Quase não lembrei</QuaseNaoLembrei>
+                    <Zap onClick={clickZap}>Zap!</Zap>
                     </ContainerButton>
             </PerguntaAberta>
         )
