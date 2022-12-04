@@ -28,9 +28,9 @@ export default function FlashCard(props) {
 
     if (stage === "start") {
         return (
-            <PerguntaFechada cor="#333333" textDecoracion="none">
-                <p>{text}</p>
-                <img onClick={() => setStage("question")} src={image} alt="play" />
+            <PerguntaFechada data-test="flashcard" cor="#333333" textDecoracion="none">
+                <p data-test="flashcard-text">{text}</p>
+                <img data-test="play-btn" onClick={() => setStage("question")} src={image} alt="play" />
             </PerguntaFechada>
         )
     }
@@ -38,8 +38,8 @@ export default function FlashCard(props) {
     if (stage === "question") {
         return (
             <PerguntaAberta>
-                <p>{question}</p>
-                <img onClick={() => setStage("answer")} src={setaVirar} />
+                <p data-test="flashcard-text">{question}</p>
+                <img data-test="turn-btn" onClick={() => setStage("answer")} src={setaVirar} alt="setaVirar"/>
             </PerguntaAberta>
         )
     }
@@ -47,11 +47,11 @@ export default function FlashCard(props) {
     if(stage === "answer"){
         return (
             <PerguntaAberta>
-                <p>{answer}</p>
+                <p data-test="flashcard-text">{answer}</p>
                     <ContainerButton>
-                    <NaoLembrei onClick={clickNLembrei}>Não lembrei</NaoLembrei>
-                    <QuaseNaoLembrei onClick={clickQNLembrei}>Quase não lembrei</QuaseNaoLembrei>
-                    <Zap onClick={clickZap}>Zap!</Zap>
+                    <NaoLembrei data-test="no-btn" onClick={clickNLembrei}>Não lembrei</NaoLembrei>
+                    <QuaseNaoLembrei data-test="partial-btn" onClick={clickQNLembrei}>Quase não lembrei</QuaseNaoLembrei>
+                    <Zap data-test="zap-btn" onClick={clickZap}>Zap!</Zap>
                     </ContainerButton>
             </PerguntaAberta>
         )
@@ -60,8 +60,8 @@ export default function FlashCard(props) {
     if(stage === "Não lembrei"){
         return (
             <PerguntaFechada cor="#FF3030" textDecoracion="line-through">
-                <p>{text}</p>
-                <img src={iconeErro} />
+                <p data-test="flashcard-text">{text}</p>
+                <img data-test="no-icon" src={iconeErro} alt="iconeErro"/>
             </PerguntaFechada>
         )
     }
@@ -69,8 +69,8 @@ export default function FlashCard(props) {
     if(stage === "Quase não lembrei"){
         return (
             <PerguntaFechada cor="#FF922E" textDecoracion="line-through">
-                <p>{text}</p>
-                <img src={iconeQuase} />
+                <p data-test="flashcard-text">{text}</p>
+                <img data-test="partial-icon" src={iconeQuase} alt="iconeQuase"/>
             </PerguntaFechada>
         )
     }
@@ -78,8 +78,8 @@ export default function FlashCard(props) {
     if(stage === "Zap!"){
         return (
             <PerguntaFechada cor="#2FBE34" textDecoracion="line-through">
-                <p>{text}</p>
-                <img src={iconeCerto    } />
+                <p data-test="flashcard-text">{text}</p>
+                <img data-test="zap-icon" src={iconeCerto} alt="iconeCerto"/>
             </PerguntaFechada>
         )
     }

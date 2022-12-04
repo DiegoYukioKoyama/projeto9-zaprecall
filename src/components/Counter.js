@@ -5,7 +5,7 @@ export default function Counter(props){
     const {contador} = props
 
     return (
-        <Count>
+        <Count data-test="footer">
             {contador}/8 CONCLUÍDOS
         </Count>
     )
