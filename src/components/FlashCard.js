@@ -37,7 +37,7 @@ export default function FlashCard(props) {
 
     if (stage === "question") {
         return (
-            <PerguntaAberta>
+            <PerguntaAberta data-test="flashcard">
                 <p data-test="flashcard-text">{question}</p>
                 <img data-test="turn-btn" onClick={() => setStage("answer")} src={setaVirar} alt="setaVirar"/>
             </PerguntaAberta>
@@ -46,7 +46,7 @@ export default function FlashCard(props) {
 
     if(stage === "answer"){
         return (
-            <PerguntaAberta>
+            <PerguntaAberta data-test="flashcard">
                 <p data-test="flashcard-text">{answer}</p>
                     <ContainerButton>
                     <NaoLembrei data-test="no-btn" onClick={clickNLembrei}>Não lembrei</NaoLembrei>
@@ -59,7 +59,7 @@ export default function FlashCard(props) {
 
     if(stage === "Não lembrei"){
         return (
-            <PerguntaFechada cor="#FF3030" textDecoracion="line-through">
+            <PerguntaFechada data-test="flashcard" cor="#FF3030" textDecoracion="line-through">
                 <p data-test="flashcard-text">{text}</p>
                 <img data-test="no-icon" src={iconeErro} alt="iconeErro"/>
             </PerguntaFechada>
@@ -68,7 +68,7 @@ export default function FlashCard(props) {
 
     if(stage === "Quase não lembrei"){
         return (
-            <PerguntaFechada cor="#FF922E" textDecoracion="line-through">
+            <PerguntaFechada data-test="flashcard" cor="#FF922E" textDecoracion="line-through">
                 <p data-test="flashcard-text">{text}</p>
                 <img data-test="partial-icon" src={iconeQuase} alt="iconeQuase"/>
             </PerguntaFechada>
@@ -77,7 +77,7 @@ export default function FlashCard(props) {
 
     if(stage === "Zap!"){
         return (
-            <PerguntaFechada cor="#2FBE34" textDecoracion="line-through">
+            <PerguntaFechada data-test="flashcard" cor="#2FBE34" textDecoracion="line-through">
                 <p data-test="flashcard-text">{text}</p>
                 <img data-test="zap-icon" src={iconeCerto} alt="iconeCerto"/>
             </PerguntaFechada>
